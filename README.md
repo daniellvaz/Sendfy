@@ -1,7 +1,5 @@
 ## Sendfy
 
-#
-
 ![mockup](/public/assets/Messager.png)
 
 #
