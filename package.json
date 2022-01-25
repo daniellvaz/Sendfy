@@ -1,6 +1,7 @@
 {
   "name": "sendfy",
   "version": "1.0.0",
+  "description": "An simple application to send messages on real-time",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
