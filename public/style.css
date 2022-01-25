@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2f2f2f;
+  color: #e2e2e2;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #252525;
+  border-bottom: 1px solid #464646;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  width: 100vw;
+  height: calc(100vh - 10rem);
+  padding: 1rem;
+
+  overflow-y: auto;
+}
+
+.card {
+  position: relative;
+  padding: 1rem 2rem;
+  background-color: #464646;
+  border-radius: 8px;
+}
+
+.card > p {
+  font-size: 16px;
+}
+
+.card > strong {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+
+  font-size: 12px;
+}
+
+.card + .card {
+  margin-top: 2rem;
+}
+
+.card.other::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: 0px;
+  transform: rotate(-90deg);
+  border-style: solid;
+  border-width: 0px 8px 8px;
+  border-color: transparent transparent #464646;
+}
+
+.card.self::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+  transform: rotate(90deg);
+  border-style: solid;
+  border-width: 0px 8px 8px;
+  border-color: transparent transparent #464646;
+}
+
+footer {
+  height: 5rem;
+  padding: 0 1rem;
+  background-color: #252525;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > #chat {
+  display: flex;
+}
+
+#input-chat {
+  width: calc(100vw - 8rem);
+  height: 3rem;
+  padding: 0 1rem;
+
+  border-radius: 8px;
+  border: 1px solid #464646;
+  background: #252525;
+  color: #e2e2e2;
+}
+
+.btn-success {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+
+  border: none;
+  border-radius: 8px;
+  background: #86f09d;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > h1 {
+  margin-bottom: 2rem;
+}
+
+.container > form > input {
+  min-width: 300px;
+  height: 2rem;
+  padding: 0.5rem;
+
+  background-color: #252525;
+  border: 1px solid #464646;
+  border-radius: 8px;
+  color: #e2e2e2;
+}
