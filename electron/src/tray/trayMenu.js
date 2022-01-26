@@ -1,7 +1,10 @@
 const { Menu } = require("electron");
+const { settings } = require("../store/settings.schema");
+
+const settingsPreferences = settings.get("system");
 
 const menuTemplate = [
-  { label: "Enviar mensagem", click: () => console.log("mensagem enviada") },
+  { label: "Sempre ao topo", click: () => console.log(settingsPreferences) },
 ];
 
 const menu = new Menu.buildFromTemplate(menuTemplate);

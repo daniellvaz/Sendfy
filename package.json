@@ -14,8 +14,10 @@
     "ejs": "^3.1.6",
     "electron": "^16.0.7",
     "electron-prompt": "^1.7.0",
+    "electron-store": "^8.0.1",
     "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",
+    "json-schema-typed": "^7.0.3",
     "socket.io": "^4.4.1",
     "window-size": "^1.1.1"
   },
