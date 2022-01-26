@@ -2,6 +2,7 @@ const { BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 const createWindow = ({ x, y }) => {
+  const platform = process.platform;
   const win = new BrowserWindow({
     width: 400,
     height: 600,
@@ -19,7 +20,12 @@ const createWindow = ({ x, y }) => {
     },
   });
 
-  win.setIcon(path.resolve(__dirname, "../../assets/icons/win/icon.ico"));
+  if (platform !== "darwin") {
+    win.setIcon(path.resolve(__dirname, "../../assets/icons/win/icon.ico"));
+  }
+
+  win.setIcon(path.resolve(__dirname, "../../assets/icons/png/24x24.png"));
+
   win.loadURL("http://localhost:3000");
 
   ipcMain.on("minimize-window", () => {
