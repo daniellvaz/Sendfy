@@ -6,11 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <title>Sendfy |</title>
   </head>
   <body>
+    <div class="bar">
+      <div class="actions-win">
+        <div id="minimize">
+          <i class="fas fa-window-minimize"></i>
+        </div>
+        <div id="close">
+          <i class="far fa-window-close"></i>
+        </div>
+      </div>
+      <!-- <div class="actions-darwin">
+        <div id="close"></div>
+        <div id="minimize"></div>
+      </div> -->
+    </div>
     <%- body %>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/index.js"></script>
+    <script type="module" src="/index.js"></script>
   </body>
 </html>

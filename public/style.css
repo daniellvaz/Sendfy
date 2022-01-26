@@ -22,12 +22,58 @@ header {
 
 main {
   width: 100vw;
-  height: 100vh;
+}
+
+.bar {
+  width: 100vw;
+  height: 2rem;
+  padding: 0 1rem;
+  background: #1d1d1d;
+  display: flex;
+  align-items: center;
+}
+
+.actions-win {
+  min-width: 50px;
+  position: absolute;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions-win > div > i {
+  color: #464646;
+  cursor: pointer;
+}
+
+.actions-darwin {
+  min-width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions-darwin > #close {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #f0736f;
+  cursor: pointer;
+}
+
+.actions-darwin > #minimize {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #fdc12f;
+  cursor: pointer;
 }
 
 .content {
   width: 100vw;
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 12rem);
   padding: 1rem;
 
   overflow-y: auto;
@@ -93,7 +139,7 @@ footer > #chat {
 }
 
 #input-chat {
-  width: calc(100vw - 8rem);
+  width: calc(100vw - 10rem);
   height: 3rem;
   padding: 0 1rem;
 
@@ -131,10 +177,14 @@ footer > #chat {
 .container > form > input {
   min-width: 300px;
   height: 2rem;
-  padding: 0.5rem;
+  padding: 0 1rem;
 
   background-color: #252525;
   border: 1px solid #464646;
   border-radius: 8px;
   color: #e2e2e2;
+}
+
+input:focus {
+  outline: 1px solid #86f09d;
 }
