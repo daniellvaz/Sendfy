@@ -9,6 +9,7 @@ const createWindow = ({ x, y }) => {
     resizable: false,
     frame: false,
     alwaysOnTop: true,
+    transparent: true,
     x: x - 160,
     y: y - 616,
     webPreferences: {
@@ -19,7 +20,6 @@ const createWindow = ({ x, y }) => {
   });
 
   win.setIcon(path.resolve(__dirname, "../../assets/icons/win/icon.ico"));
-
   win.loadURL("http://localhost:3000");
 
   ipcMain.on("minimize-window", () => {

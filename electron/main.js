@@ -2,7 +2,7 @@ const path = require("path");
 const prompt = require("electron-prompt");
 const createTray = require("./src/tray/createTray");
 const createWindow = require("./src/window/createWindow");
-const { app, BrowserWindow, ipcMain, remote } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 
 app.whenReady().then(() => {
   const tray = createTray();

@@ -15,21 +15,23 @@
     <title>Sendfy |</title>
   </head>
   <body>
-    <div class="bar">
-      <div class="actions-win">
-        <div id="minimize">
-          <i class="fas fa-window-minimize"></i>
+    <main>
+      <div class="bar">
+        <div class="actions-win">
+          <div id="minimize">
+            <i class="fas fa-window-minimize"></i>
+          </div>
+          <div id="close">
+            <i class="far fa-window-close"></i>
+          </div>
         </div>
-        <div id="close">
-          <i class="far fa-window-close"></i>
-        </div>
+        <!-- <div class="actions-darwin">
+          <div id="close"></div>
+          <div id="minimize"></div>
+        </div> -->
       </div>
-      <!-- <div class="actions-darwin">
-        <div id="close"></div>
-        <div id="minimize"></div>
-      </div> -->
-    </div>
-    <%- body %>
+      <%- body %>
+    </main>
     <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="/index.js"></script>
   </body>
