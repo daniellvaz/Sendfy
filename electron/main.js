@@ -4,13 +4,19 @@ const createWindow = require("./src/window/createWindow");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const settings = require("./src/settings/settings");
 
+const platform = process.platform;
 const App = () => {
   const tray = require("./src/tray/createTray");
   const { x, y } = tray.getBounds();
 
   settings.setDefaultConfigurations({ x, y });
 
-  tray.addListener("click", () => createWindow());
+  tray.addListener("double-click", () => createWindow());
+  tray.addListener("right-click", () => console.log("aqui"));
+
+  if (platform === "darwin") {
+    app.dock.hide();
+  }
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -19,7 +25,6 @@ const App = () => {
 };
 
 app.whenReady().then(App);
-
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();

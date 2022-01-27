@@ -14,6 +14,7 @@ const createWindow = () => {
     frame: false,
     alwaysOnTop: false,
     transparent: true,
+    skipTaskbar: true,
     x,
     y,
     webPreferences: {
@@ -28,16 +29,11 @@ const createWindow = () => {
   }
 
   win.setIcon(path.resolve(__dirname, "../../assets/icons/png/24x24.png"));
-
   win.loadURL("http://localhost:3000");
 
-  ipcMain.on("minimize-window", () => {
-    win.minimize();
-  });
-
-  ipcMain.on("close-window", (e, a) => {
-    win.close();
-  });
+  ipcMain.on("minimize-window", () => win.minimize());
+  ipcMain.on("close-window", () => win.hide());
+  ipcMain.on("open-window", () => win.show());
 };
 
 module.exports = createWindow;
