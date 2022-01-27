@@ -9,7 +9,6 @@ const createTray = () => {
   const tray = new Tray(image);
 
   tray.setToolTip("Sendfy");
-  tray.setTitle("Sendfy");
   tray.setContextMenu(menu);
 
   return tray;

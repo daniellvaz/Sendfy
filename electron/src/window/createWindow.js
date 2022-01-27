@@ -1,18 +1,21 @@
-const { BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
+const { BrowserWindow, ipcMain } = require("electron");
+const settings = require("../settings/settings");
 
-const createWindow = ({ x, y }) => {
+const createWindow = () => {
   const platform = process.platform;
+  const { x, y } = settings.getWindowPosition();
+
   const win = new BrowserWindow({
     width: 400,
     height: 600,
     fullscreenable: false,
     resizable: false,
     frame: false,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     transparent: true,
-    x: x - 160,
-    y: y - 616,
+    x,
+    y,
     webPreferences: {
       preload: path.resolve(__dirname, "../preload.js"),
       nodeIntegration: true,

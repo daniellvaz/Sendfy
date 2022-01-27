@@ -2,12 +2,15 @@ const path = require("path");
 const prompt = require("electron-prompt");
 const createWindow = require("./src/window/createWindow");
 const { app, BrowserWindow, ipcMain } = require("electron");
+const settings = require("./src/settings/settings");
 
 const App = () => {
   const tray = require("./src/tray/createTray");
   const { x, y } = tray.getBounds();
 
-  tray.addListener("click", () => createWindow({ x, y }));
+  settings.setDefaultConfigurations({ x, y });
+
+  tray.addListener("click", () => createWindow());
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
