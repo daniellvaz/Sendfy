@@ -5,6 +5,7 @@ const settings = require("../settings/settings");
 const createWindow = () => {
   const platform = process.platform;
   const { x, y } = settings.getWindowPosition();
+  const { alwaysOnTop, dragable } = settings.getPreferences();
 
   const win = new BrowserWindow({
     width: 400,
@@ -12,7 +13,8 @@ const createWindow = () => {
     fullscreenable: false,
     resizable: false,
     frame: false,
-    alwaysOnTop: false,
+    alwaysOnTop,
+    movable: dragable,
     transparent: true,
     skipTaskbar: true,
     x,
@@ -29,11 +31,12 @@ const createWindow = () => {
   }
 
   win.setIcon(path.resolve(__dirname, "../../assets/icons/png/24x24.png"));
-  win.loadURL("http://localhost:3000");
+  win.loadURL(settings.getUrl());
 
   ipcMain.on("minimize-window", () => win.minimize());
   ipcMain.on("close-window", () => win.hide());
   ipcMain.on("open-window", () => win.show());
+  ipcMain.on("open-settings", () => win.webContents.send("open-settings"));
 };
 
 module.exports = createWindow;

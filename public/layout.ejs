@@ -17,7 +17,12 @@
   <body>
     <main>
       <div class="bar">
-        <div class="actions-win">
+        <div class="darwin">
+          <div id="close"></div>
+          <div id="minimize"></div>
+        </div>
+        <div draggable="true" class="dragable-area"></div>
+        <div class="win">
           <div id="minimize">
             <i class="fas fa-window-minimize"></i>
           </div>
@@ -25,10 +30,6 @@
             <i class="far fa-window-close"></i>
           </div>
         </div>
-        <!-- <div class="actions-darwin">
-          <div id="close"></div>
-          <div id="minimize"></div>
-        </div> -->
       </div>
       <%- body %>
     </main>

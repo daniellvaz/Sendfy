@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/errors", (req, res) => {
-  return res.render("pages/error");
+app.get("/preferences", (req, res) => {
+  return res.render("pages/preferences");
 });
 
 io.on("connection", (socket) => {

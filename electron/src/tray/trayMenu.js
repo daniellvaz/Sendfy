@@ -1,21 +1,39 @@
-const { Menu, app, ipcMain } = require("electron");
+const { Menu, app, ipcMain, BrowserWindow } = require("electron");
 const systemSchema = require("../store/system.schema");
 
-const { alwaysOnTop } = systemSchema.get("system");
-const path = app.getPath("userData");
+const settings = systemSchema.get("preferences");
+
 const menuTemplate = [
-  {
-    label: "Sempre ao topo",
-    click: () =>
-      systemSchema.set("system", { alwaysOnTop: alwaysOnTop ? false : true }),
-  },
   {
     label: "Abrir",
     click: () => ipcMain.emit("open-window"),
   },
-  { label: "Sair", click: app.quit },
+  { label: "Fechar", click: app.quit },
+  {
+    label: "Sempre ao topo",
+    type: "checkbox",
+    checked: settings.alwaysOnTop,
+    click: (element) =>
+      systemSchema.set("preferences", {
+        alwaysOnTop: element.checked,
+        theme: settings.theme,
+        draggable: settings.draggable,
+      }),
+  },
   { type: "separator" },
-  { label: "Configurações", click: () => systemSchema.openInEditor },
+  {
+    label: "Configurações",
+    submenu: [
+      {
+        label: "Preferências",
+        click: () => ipcMain.emit("open-settings"),
+      },
+      {
+        label: "Configurações do Sistema",
+        click: () => systemSchema.openInEditor(),
+      },
+    ],
+  },
 ];
 
 const menu = new Menu.buildFromTemplate(menuTemplate);

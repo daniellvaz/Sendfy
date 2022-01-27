@@ -11,6 +11,10 @@ export default function createForm(socket) {
     return;
   }
 
+  if (!form || !input) {
+    return;
+  }
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const value = input.value;

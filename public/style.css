@@ -27,35 +27,49 @@ main {
 .bar {
   width: 100vw;
   height: 2rem;
-  padding: 0 1rem;
   background: #1d1d1d;
   display: flex;
   align-items: center;
 }
 
-.actions-win {
+.dragable-area {
+  width: calc(100% - 66px);
+  height: 2rem;
+  -webkit-app-region: drag;
+}
+
+.win {
   min-width: 50px;
   position: absolute;
   right: 16px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
 }
 
-.actions-win > div > i {
+.win.open {
+  display: flex;
+}
+
+.win > div > i {
   color: #464646;
   cursor: pointer;
 }
 
-.actions-darwin {
-  min-width: 40px;
-
-  display: flex;
+.darwin {
+  min-width: 50px;
+  margin-left: 16px;
+  display: none;
+  padding: 0 0.1rem;
   align-items: center;
   justify-content: space-between;
 }
 
-.actions-darwin > #close {
+.darwin.open {
+  display: flex;
+}
+
+.darwin > #close {
   width: 16px;
   height: 16px;
   border-radius: 8px;
@@ -63,7 +77,7 @@ main {
   cursor: pointer;
 }
 
-.actions-darwin > #minimize {
+.darwin > #minimize {
   width: 16px;
   height: 16px;
   border-radius: 8px;
@@ -158,7 +172,6 @@ footer > #chat {
 
 .btn-success {
   padding: 0.5rem 1rem;
-  margin-left: 1rem;
 
   border: none;
   border-radius: 8px;
@@ -194,4 +207,52 @@ footer > #chat {
 
 input:focus {
   outline: 1px solid #86f09d;
+}
+
+/* Preferences */
+
+.preferences {
+  padding: 2rem;
+}
+
+.preferences h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.preferences .preferences-container {
+  padding: 2rem 0;
+}
+
+.preferences-content {
+  margin-top: 1rem;
+}
+
+.preferences .preferences-container .preferences-item {
+  width: calc(100vw - 4rem);
+  margin-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+option {
+  border: none;
+}
+
+#dark {
+  width: 24px;
+  height: 24px;
+
+  background: #2f2f2f;
+  color: #e2e2e2;
+}
+
+#light {
+  width: 24px;
+  height: 24px;
+
+  background: #e2e2e2;
+  color: #2f2f2f;
 }

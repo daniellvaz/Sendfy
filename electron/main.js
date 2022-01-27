@@ -3,6 +3,7 @@ const prompt = require("electron-prompt");
 const createWindow = require("./src/window/createWindow");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const settings = require("./src/settings/settings");
+const systemSchema = require("./src/store/system.schema");
 
 const platform = process.platform;
 const App = () => {
@@ -31,7 +32,7 @@ app.on("window-all-closed", () => {
   }
 });
 
-ipcMain.on("check-user", async (e, a) => {
+ipcMain.on("check-user", async (e) => {
   const response = await prompt({
     title: "Erro",
     label: "Insira um nome de usuário:",
@@ -43,4 +44,16 @@ ipcMain.on("check-user", async (e, a) => {
   if (response) {
     e.sender.send("username", response);
   }
+});
+
+ipcMain.on("save-preferences", (e, args) => {
+  const values = systemSchema.get("system");
+
+  systemSchema.set("system", {
+    theme: args.theme,
+    draggable: args.dragable,
+    alwaysOnTop: args.alwaysOnTop,
+    host: values.host,
+    port: values.port,
+  });
 });
